@@ -11,10 +11,15 @@ import org.springframework.context.annotation.Configuration;
 @EnableAutoConfiguration
 @ComponentScan
 public class Application {
-    
-    public static void main(String[] args) {
-        static SessionFactory sessionFactory = new org.hibernate.cfg.Configuration().configure()
+    static SessionFactory sessionFactory;
+
+    public Application() {
+        sessionFactory = new org.hibernate.cfg.Configuration().configure()
                 .buildSessionFactory();
+    }
+
+    public static void main(String[] args) {
+
         ApplicationContext ctx = SpringApplication.run(Application.class, args);
 
         System.out.println("Let's inspect the beans provided by Spring Boot:" +
