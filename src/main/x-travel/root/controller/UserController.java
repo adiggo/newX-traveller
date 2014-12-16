@@ -1,7 +1,9 @@
 package root.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import root.model.User;
 
 import javax.transaction.HeuristicMixedException;
 import javax.transaction.HeuristicRollbackException;
@@ -15,11 +17,10 @@ import javax.transaction.SystemException;
 @Controller
 @RequestMapping("/users")
 public class UserController {
+    @Autowired
+     UserDAOImp userDAOImp;
 
-     UserDAO userDAO;
-     public UserController(UserDAO userDAO){
-         this.userDAO = userDAO;
-     }
+
 
     /**
      * Open a hibernate session and get the user object according to the user name.
@@ -35,6 +36,6 @@ public class UserController {
     public
     @ResponseBody
     User getUser(@RequestParam(value = "username", required = true) @PathVariable("username") String username, String password) throws HeuristicRollbackException, RollbackException, HeuristicMixedException, SystemException {
-        return userDAO.getUser(username);
+        return userDAOImp.getUser(username);
     }
 }

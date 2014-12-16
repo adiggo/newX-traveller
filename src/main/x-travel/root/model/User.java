@@ -1,11 +1,5 @@
-package root.controller;
+package root.model;
 
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import root.model.Place;
-import root.model.PlaceComment;
-import root.model.Plan;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -27,17 +21,12 @@ public class User {
             sex, mobile, hobbie, email;
     private String accessToken;  // used for facebook and normal access
 
-    @Autowired
-    public User(int userId, String name){
-        this.userId = userId;
-        this.name = name;
-    }
-
-
-
 
     @ManyToMany()
     private Collection<User> friends = new ArrayList<User>();
+
+    public User() {
+    }
 
     public Collection<User> getFriends() {
         return friends;
@@ -47,69 +36,6 @@ public class User {
         this.friends = friends;
     }
 
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
-    private Collection<PlaceComment> placeComment = new ArrayList<PlaceComment>();
-
-    public Collection<PlaceComment> getPlaceComment() {
-
-        return placeComment;
-    }
-
-    public void setPlaceComment(Collection<PlaceComment> placeComment) {
-        this.placeComment = placeComment;
-    }
-
-
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
-    private Collection<Plan> planList = new ArrayList<Plan>();
-
-    public Collection<Plan> getPlanList() {
-        return planList;
-    }
-
-    public void setPlanList(Collection<Plan> planList) {
-        this.planList = planList;
-    }
-
-
-
-    @ManyToMany(cascade = {CascadeType.ALL})
-    @JoinTable(name="user_mywishlist_place")
-    private Collection<Place> mywishList = new ArrayList<Place>();
-
-    public Collection<Place> getMywishList() {
-        return mywishList;
-    }
-
-    public void setMywishList(Collection<Place> mywishList) {
-        this.mywishList = mywishList;
-    }
-
-
-
-    @ManyToMany(cascade = {CascadeType.ALL})
-    @JoinTable(name="user_myvisitedlist_place")
-    private Collection<Place> myVisitedList = new ArrayList<Place>();
-
-    public Collection<Place> getMyVisitedList() {
-        return myVisitedList;
-    }
-
-    public void setMyVisitedList(Collection<Place> myVisitedList) {
-        this.myVisitedList=myVisitedList;
-    }
-
-    @OneToMany(cascade = {CascadeType.ALL})
-    @JoinTable(name="user_plancomment_place")
-    private Collection<Plan> planComment = new ArrayList<Plan>();
-
-    public Collection<Plan> getPlanComment() {
-        return planComment;
-    }
-
-    public void setPlanComment(Collection<Plan> planComment) {
-        this.planComment=planComment;
-    }
 
     public String getName() {
         return name;
@@ -119,7 +45,7 @@ public class User {
         this.name = name;
     }
 
-    @Column(name = "username")
+    @Column
     public String getUserName() {
         return userName;
     }
