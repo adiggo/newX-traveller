@@ -27,7 +27,7 @@
     </dependencies>
 
     <properties>
-        <start-class>root.Application</start-class>
+        <start-class>root.controller.Application</start-class>
     </properties>
 
     <build>
