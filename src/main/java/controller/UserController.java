@@ -1,6 +1,6 @@
 package controller;
 
-import model.UserDAOImp;
+import model.DAO.UserDAOImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

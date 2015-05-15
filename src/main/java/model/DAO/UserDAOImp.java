@@ -1,6 +1,7 @@
-package model;
+package model.DAO;
 
 
+import model.User;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -15,17 +16,11 @@ import javax.transaction.Transaction;
  */
 
 @Repository
-public class UserDAOImp implements UserDAO {
-
-    // @Autowired
-    private SessionFactory sessionFactory;
+public class UserDAOImp extends AbstractDAO implements UserDAO {
 
     public UserDAOImp() {
     }
 
-    public UserDAOImp(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
 
 //    @Autowired
 //    @Bean(name="userDao")
@@ -41,19 +36,15 @@ public class UserDAOImp implements UserDAO {
     /**
      * According to the username, output a User object.
      *
-     * @param username
+     * @param email
      * @return
      */
     @Override
-    public User getUser(String username) {
-        Session session = sessionFactory.openSession();
-        Transaction tx = null;
-        User user1 = null;
-        try {
-            tx = (Transaction) session.beginTransaction();
-            Criteria criteria = session.createCriteria(User.class);
+    public User getUser(String email) {
+
+            Criteria criteria = getSession().createCriteria(User.class);
             // find user object by using criteria other than query
-            user1 = (User) criteria.add(Restrictions.eq("username", username))
+            user1 = (User) criteria.add(Restrictions.eq("adiggo@gmail.com", email))
                     .uniqueResult();
             tx.commit();
         } catch (Throwable e) {
