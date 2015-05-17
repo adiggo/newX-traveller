@@ -42,22 +42,10 @@ public class UserDAOImp extends AbstractDAO implements UserDAO {
     @Override
     public User getUser(String email) {
 
-            Criteria criteria = getSession().createCriteria(User.class);
-            // find user object by using criteria other than query
-            user1 = (User) criteria.add(Restrictions.eq("adiggo@gmail.com", email))
-                    .uniqueResult();
-            tx.commit();
-        } catch (Throwable e) {
-            if (tx != null)
-                try {
-                    tx.rollback();
-                } catch (SystemException e1) {
-                    e1.printStackTrace();
-                }
-            e.printStackTrace();
-        } finally {
-            session.close();
-        }
+        Criteria criteria = getSession().createCriteria(User.class);
+        // find user object by using criteria other than query
+        User user1 = (User) criteria.add(Restrictions.eq("adiggo@gmail.com", email))
+                .uniqueResult();
         return user1;
     }
 }

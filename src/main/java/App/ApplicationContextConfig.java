@@ -30,34 +30,34 @@ public class ApplicationContextConfig {
 //    }
 
 
-    private Properties getHibernateProperties() {
-        Properties properties = new Properties();
-        properties.put("hibernate.show_sql", "true");
-        properties.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
-        return properties;
-    }
-
-    @Bean(name = "dataSource")
-    public DataSource getDataSource() {
-        BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:8889/hibernate?characterEncoding=utf-8");
-        dataSource.setUsername("root");
-        dataSource.setPassword("root");
-        return dataSource;
-    }
-
-    @Autowired
-    @Bean(name = "sessionFactory")
-    public SessionFactory getSessionFactory(DataSource dataSource) {
-
-        LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
-
-        sessionBuilder.addProperties(getHibernateProperties());
-        sessionBuilder.addAnnotatedClasses(User.class);
-
-        return sessionBuilder.buildSessionFactory();
-    }
+//    private Properties getHibernateProperties() {
+//        Properties properties = new Properties();
+//        properties.put("hibernate.show_sql", "true");
+//        properties.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+//        return properties;
+//    }
+//
+//    @Bean(name = "dataSource")
+//    public DataSource getDataSource() {
+//        BasicDataSource dataSource = new BasicDataSource();
+//        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+//        dataSource.setUrl("jdbc:mysql://localhost:8889/hibernate?characterEncoding=utf-8");
+//        dataSource.setUsername("root");
+//        dataSource.setPassword("root");
+//        return dataSource;
+//    }
+//
+//    @Autowired
+//    @Bean(name = "sessionFactory")
+//    public SessionFactory getSessionFactory(DataSource dataSource) {
+//
+//        LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
+//
+//        sessionBuilder.addProperties(getHibernateProperties());
+//        sessionBuilder.addAnnotatedClasses(User.class);
+//
+//        return sessionBuilder.buildSessionFactory();
+//    }
 
 //    @Autowired
 //    @Bean(name = "transactionManager")

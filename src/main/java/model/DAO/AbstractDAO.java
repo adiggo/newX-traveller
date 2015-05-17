@@ -10,19 +10,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class AbstractDAO {
 
 
-        @Autowired
-        private SessionFactory sessionFactory;
+    @Autowired
+    private SessionFactory sessionFactory;
 
-        protected Session getSession() {
-            return sessionFactory.getCurrentSession();
-        }
+    protected Session getSession() {
+        return sessionFactory.getCurrentSession();
+    }
 
-        public void persist(Object entity) {
-            getSession().persist(entity);
-        }
+    public void persist(Object entity) {
+        getSession().persist(entity);
+    }
 
-        public void delete(Object entity) {
-            getSession().delete(entity);
-        }
+    public void delete(Object entity) {
+        getSession().delete(entity);
+    }
 
 }

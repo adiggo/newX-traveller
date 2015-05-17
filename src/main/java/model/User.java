@@ -19,10 +19,11 @@ import javax.persistence.Id;
 public class User {
     @Id
     @GeneratedValue
-    private int userId;
+    private Long id;
     private int age;
     private Date joinDate;
-    private String name, userName, password,
+    private Date dob;
+    private String name, username, password,
             sex, mobile, hobbie, email;
     private String accessToken;  // used for facebook and normal access
 
@@ -31,6 +32,10 @@ public class User {
     private Collection<User> friends = new ArrayList<User>();
 
     public User() {
+    }
+
+    private void setDob(Date dob){
+        this.dob = dob;
     }
 
     public Collection<User> getFriends() {
@@ -51,12 +56,12 @@ public class User {
     }
 
     @Column
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String userName) {
+        this.username = userName;
     }
 
     public String getPassword() {
@@ -117,12 +122,12 @@ public class User {
         this.joinDate = joinDate;
     }
 
-    public int getUserId() {
-        return userId;
+    public Long getId() {
+        return id;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getAccessToken() {
