@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/complete.iml" filepath="$PROJECT_DIR$/complete.iml" />
+      <module fileurl="file://$PROJECT_DIR$/newX-traveller.iml" filepath="$PROJECT_DIR$/newX-traveller.iml" />
     </modules>
   </component>
 </project>
-

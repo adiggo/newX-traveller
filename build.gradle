@@ -1,9 +1,11 @@
+
+
 buildscript {
     repositories {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.8.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.3.RELEASE")
     }
 }
 
@@ -21,21 +23,24 @@ repositories {
     mavenCentral()
 }
 
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
 dependencies {
-    compile 'org.springframework.boot:spring-boot-starter-data-jpa:1.1.4.RELEASE'
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
     compile 'javax.servlet:javax.servlet-api:3.1.0'
     compile 'org.hibernate:hibernate-core:4.3.6.Final'
     compile 'commons-dbcp:commons-dbcp:1.4'
+    compile("org.springframework:spring-jdbc")
     compile 'mysql:mysql-connector-java:5.1.31'
-    compile"org.springframework.boot:spring-boot-starter-web"
-    // tag::actuator[]
-    compile("org.springframework.boot:spring-boot-starter-actuator")
-
+    compile("com.h2database:h2")
     // end::actuator[]
-
+    testCompile("org.springframework.boot:spring-boot-starter-test")
     testCompile("junit:junit")
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.11'
+    gradleVersion = '2.3'
 }

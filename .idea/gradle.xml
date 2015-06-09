@@ -3,7 +3,16 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="distributionType" value="WRAPPED" />
+        <option name="externalProjectPath" value="$USER_HOME$/gs-actuator-service/complete" />
+        <option name="modules">
+          <set>
+            <option value="$USER_HOME$/gs-actuator-service/complete" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
@@ -15,4 +24,3 @@
     </option>
   </component>
 </project>
-

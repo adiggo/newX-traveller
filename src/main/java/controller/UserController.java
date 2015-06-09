@@ -4,17 +4,19 @@ import model.DAO.UserDAOImp;
 import model.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 import model.User;
-
 
 
 /**
  * Created by i843719 on 11/6/14.
  */
 @RestController
+@Repository
 public class UserController {
 
+    @Autowired
     private final UserService userService;
 
     @Autowired
