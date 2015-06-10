@@ -1,15 +1,10 @@
 package model.DAO;
 
 
-import model.User;
+import controller.User;
 import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
-
-import javax.transaction.SystemException;
-import javax.transaction.Transaction;
 
 /**
  * Created by i843719 on 11/7/14.

@@ -1,7 +1,7 @@
 package model.DAO;
 
 import org.springframework.stereotype.Repository;
-import model.User;
+import controller.User;
 
 /**
  * Created by i843719 on 11/8/14.

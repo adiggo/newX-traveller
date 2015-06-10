@@ -1,11 +1,14 @@
 package controller;
 
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+/**
+ * Created by i843719 on 11/15/14.
+ */
 @SpringBootApplication
-public class Application {
+public class Application extends WebMvcConfigurerAdapter {
 
 
 //    @Autowired

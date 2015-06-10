@@ -22,8 +22,8 @@ import java.util.Properties;
  */
 @Configuration
 @EnableTransactionManagement
-@ComponentScan({"config"})
-@PropertySource(value = {"classpath:src/application.properties"})
+//@ComponentScan({"config"})
+//@PropertySource(value = {"classpath:src/main/resourses/application.properties"})
 public class HibernateConfig {
 
     @Autowired
